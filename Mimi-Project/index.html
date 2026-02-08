@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Project - To-Do List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app__header">
+      <div>
+        <p class="eyebrow">Mini Project</p>
+        <h1>To-Do List</h1>
+        <p class="subhead">Add, edit, complete, and organize your tasks.</p>
+      </div>
+      <div class="stats" id="stats">
+        <span><strong id="countTotal">0</strong> Total</span>
+        <span><strong id="countActive">0</strong> Active</span>
+        <span><strong id="countDone">0</strong> Done</span>
+      </div>
+    </header>
+
+    <section class="card">
+      <form id="taskForm" class="task-form" autocomplete="off">
+        <label class="sr-only" for="taskInput">New task</label>
+        <input id="taskInput" type="text" placeholder="What do you want to get done?" maxlength="120" />
+        <button type="submit">Add Task</button>
+      </form>
+
+      <div class="filters">
+        <button class="filter is-active" data-filter="all" type="button">All</button>
+        <button class="filter" data-filter="active" type="button">Active</button>
+        <button class="filter" data-filter="completed" type="button">Completed</button>
+        <button id="clearCompleted" class="filter danger" type="button">Clear Completed</button>
+      </div>
+
+      <ul id="taskList" class="task-list" aria-live="polite"></ul>
+
+      <p id="emptyState" class="empty-state">No tasks yet. Add one above to get started.</p>
+    </section>
+  </main>
+
+  <template id="taskTemplate">
+    <li class="task">
+      <label class="task__left">
+        <input class="task__check" type="checkbox" />
+        <span class="task__text"></span>
+      </label>
+      <div class="task__actions">
+        <button class="task__edit" type="button">Edit</button>
+        <button class="task__delete" type="button">Delete</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
